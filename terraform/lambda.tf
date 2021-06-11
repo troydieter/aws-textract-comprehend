@@ -21,7 +21,7 @@ resource "aws_lambda_function" "validate" {
   s3_key        = "validate.zip"
   function_name = "validate-${random_id.rando.hex}"
   role          = aws_iam_role.iam_role.arn
-  handler       = "blog-validate.lambda_handler"
+  handler       = "data-validate.lambda_handler"
 
   runtime     = "python3.7"
   timeout     = 120
@@ -46,7 +46,7 @@ resource "aws_lambda_function" "parse" {
   s3_key        = "parse-desc.zip"
   function_name = "parse-${random_id.rando.hex}"
   role          = aws_iam_role.iam_role.arn
-  handler       = "blog-parse.lambda_handler"
+  handler       = "data-parse.lambda_handler"
 
   runtime     = "python3.7"
   timeout     = 120
@@ -64,7 +64,7 @@ resource "aws_lambda_function" "extract" {
   s3_key        = "extract-queue.zip"
   function_name = "extract-${random_id.rando.hex}"
   role          = aws_iam_role.iam_role.arn
-  handler       = "blog-extract.lambda_handler"
+  handler       = "data-extract.lambda_handler"
 
   runtime     = "python3.7"
   timeout     = 120
